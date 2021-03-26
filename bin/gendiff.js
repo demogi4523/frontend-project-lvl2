@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import program from '../src/index.js';
+import program from '../index.js';
 
 program.parse();
