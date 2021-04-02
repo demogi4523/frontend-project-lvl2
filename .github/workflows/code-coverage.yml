@@ -24,7 +24,9 @@ jobs:
 
       - run: npm install
       - run: npm build
-      env:
-        CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
-      with:
-        coverageCommand: npm coverage
+      - uses: demogi4523/codeclimate-action@v2.7.2
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageCommand: npm run coverage
+          debug: true
