@@ -16,9 +16,7 @@ export default function genDiff(filepath1, filepath2) {
   const deletedKeys = _.difference(keys1, keys2);
   const addedKeys = _.difference(keys2, keys1);
   const sharedKeys = _.intersection(keys2, keys1);
-  // console.log(`addedKeys: ${addedKeys}`);
-  // console.log(`deletedKeys: ${deletedKeys}`);
-  // console.log(`sharedKeys: ${sharedKeys}`);
+
   const addInfo = (arr, status) => arr.map((item) => ({ item, status }));
   const changedKeys = [];
   const unchangedKeys = [];
@@ -58,9 +56,3 @@ export default function genDiff(filepath1, filepath2) {
   }
   return data;
 }
-
-// const { log } = console;
-// log(genDiff('tests/file2.json'), 'tests/file1.json');
-// addedKeys: verbose
-// deletedKeys: proxy,follow
-// sharedKeys: host,timeout

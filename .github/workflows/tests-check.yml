@@ -1,0 +1,21 @@
+name: tests-check
+
+# Run this workflow every time a new commit pushed to your repository
+on:
+  push:
+    branches:
+      - '**'
+    tags:
+      - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: tests checking
+        with: 
+           token: ${{ secrets.DHFP1 }}
+      run:
+        make test
