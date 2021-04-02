@@ -24,7 +24,7 @@ jobs:
 
       - run: npm install
       - run: npm build
-      - uses: demogi4523/codeclimate-action@v2.7.2
+      - uses: demogi4523/frontend-project-lvl2
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
