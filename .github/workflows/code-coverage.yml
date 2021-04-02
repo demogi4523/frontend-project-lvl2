@@ -1,4 +1,4 @@
-name: build
+name: test with coverage
 on:
   push:
     branches:
@@ -7,42 +7,28 @@ on:
       - '**'
     paths:
       - src/*
-      - test/*
+      - __tests__/*
       - '*.json'
       - yarn.lock
-  pull_request:
-    paths:
-      - '!*.MD'
+
 jobs:
   test:
-    strategy:
-      matrix:
-        platform: [ ubuntu-latest, macOS-latest ]
-        node: [ '14', '12' ]
-    name: test/node ${{ matrix.node }}/${{ matrix.platform }}
-    runs-on: ${{ matrix.platform }}
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@main
-    - uses: actions/setup-node@main
-      with:
-        node-version: ${{ matrix.node }}
-    - run: npm install
-    - run: npm build
-    - run: npm test
+      - run: npm install
+      - run: npm build
+      - run: npm test
   coverage:
     needs: [ test ]
     name: coverage
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@main
-    - uses: actions/setup-node@main
-      with:
-        node-version: '12'
-    - run: npm install
-    - run: npm build
+      - run: npm install
+      - run: npm build
       env:
         CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
       with:
+        node-version: '12'
         token: ${{secrets.GT}}
         coverageCommand: npm run coverage
         debug: true
