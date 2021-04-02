@@ -4,7 +4,7 @@ on:
     branches:
       - main
     tags:
-      - '!*' # Do not execute on tags
+      - '**'
     paths:
       - src/*
       - test/*
