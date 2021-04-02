@@ -20,13 +20,8 @@ jobs:
       - run: npm test
   coverage:
     needs: [ test ]
-    name: coverage
     runs-on: ubuntu-latest
     steps:
       - run: npm install
       - run: npm build
-      with:
-        node-version: '12'
-        token: ${{secrets.GT}}
-        coverageCommand: npm run coverage
-        debug: true
+      - run: npm run coverage
