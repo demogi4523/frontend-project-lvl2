@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/.bin/jest",
-    "coverage": "node --experimental-vm-modules node_modules/.bin/jest --coverage"
+    "coverage": "node --experimental-vm-modules node_modules/.bin/jest --coverage",
+    "lint": "npx eslint ."
   },
   "bin": {
     "gendiff": "bin/gendiff.js"
