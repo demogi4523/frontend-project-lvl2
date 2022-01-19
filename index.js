@@ -1,14 +1,29 @@
 import { Command } from "commander";
+
 const program = new Command();
+const version = '1.0.0';
 
 program
   .description('Compares two configuration files and shows a difference.')
-  .option('-V, --version', 'output the version number');
+  .version(version)
+  .action(() => {
+    console.log(version);
+  })
+  .argument('<filepath1>')
+  .argument('<filepath2>')
+  .action((filepath1, filepath2) => {
+    console.log('filepath1:', filepath1);
+    console.log('filepath2:', filepath2);
+  })
+  .option('-f', '--format [type]', 'output format')
+  .action((filepath1, filepath2) => {
+    console.log('filepath1:', filepath1);
+    console.log('filepath2:', filepath2);
+  });
+
 program.parse(process.argv);
 
-export default function genDiff() {
-  return 'asfasf';
-}
+export default program;
 
 // # Порядок вывода параметров не важен
 // gendiff -h
