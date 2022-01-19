@@ -1,0 +1,30 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "[![Actions Status](https://github.com/demogi4523/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/demogi4523/frontend-project-lvl2/actions)",
+  "bin": {
+    "gendiff": "./bin/gendiff.js"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/demogi4523/frontend-project-lvl2.git"
+  },
+  "author": "demogi4523 <demogi4523@yandex.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/demogi4523/frontend-project-lvl2/issues"
+  },
+  "homepage": "https://github.com/demogi4523/frontend-project-lvl2#readme",
+  "devDependencies": {
+    "eslint": "^8.7.0",
+    "simple-git-hooks": "^2.7.0"
+  },
+  "dependencies": {
+    "commander": "^8.3.0"
+  }
+}
