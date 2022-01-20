@@ -1,5 +1,7 @@
 import { Command } from "commander";
 
+import genDiff from './src/index.js';
+
 const program = new Command();
 const version = '1.0.0';
 
@@ -12,26 +14,17 @@ program
   .argument('<filepath1>')
   .argument('<filepath2>')
   .action((filepath1, filepath2) => {
-    console.log('filepath1:', filepath1);
-    console.log('filepath2:', filepath2);
+    const diff = genDiff(filepath1, filepath2);
+    console.log(diff);
   })
   .option('-f', '--format [type]', 'output format')
   .action((filepath1, filepath2) => {
-    console.log('filepath1:', filepath1);
-    console.log('filepath2:', filepath2);
+    const diff = genDiff(filepath1, filepath2);
+    console.log(`\n${diff}`);
   });
 
 program.parse(process.argv);
 
 export default program;
 
-// # Порядок вывода параметров не важен
-// gendiff -h
-
-//   Usage: gendiff [options]
-
-//   Compares two configuration files and shows a difference.
-
-//   Options:
-//     -V, --version        output the version number
-//     -h, --help           output usage information
+export const genDiff;

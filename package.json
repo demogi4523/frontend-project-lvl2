@@ -22,6 +22,7 @@
   "homepage": "https://github.com/demogi4523/frontend-project-lvl2#readme",
   "devDependencies": {
     "eslint": "^8.7.0",
+    "lodash": "^4.17.21",
     "simple-git-hooks": "^2.7.0"
   },
   "dependencies": {
